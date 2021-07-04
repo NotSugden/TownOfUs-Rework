@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "f+SkgoGjsjFKiI0LFwn/qEkc25M1h9+OyZtX99CEDu9BZGyP8iFcNRFrA7vpeZrsO9QZo1CMwspVONW0wINaJg==",
+  "dgSpecHash": "YO8faIYOyORWTB7WpDYeDyFvU1ijVoCi+78m85COdNdezHKmhgzUGfGAQUz2xSNiRplLoJeYVNK5UVNkMgVmqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\Town Of Us Rewrite\\TownOfUsRework\\TownOfUsRework.csproj",
+  "projectFilePath": "C:\\Users\\blood\\Desktop\\C# Projects\\TownOfUs\\TownOfUs-Rework\\TownOfUsRework\\TownOfUsRework.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Administrator\\.nuget\\packages\\reactor.oxygenfilter.msbuild\\0.3.0\\reactor.oxygenfilter.msbuild.0.3.0.nupkg.sha512"
+    "C:\\Users\\blood\\.nuget\\packages\\reactor.oxygenfilter.msbuild\\0.3.0\\reactor.oxygenfilter.msbuild.0.3.0.nupkg.sha512"
   ],
   "logs": []
 }

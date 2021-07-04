@@ -4,7 +4,7 @@ namespace TownOfUsRework.Roles {
   using Patches;
   class Sheriff : Role {
     public override RoleType RoleType => RoleType.Sheriff;
-    public override string ImpostorText => "Kill the Impostors.";
+    public override string ImpostorText => "Kill the Impostors";
 
     public KillButtonManager KillButton;
 

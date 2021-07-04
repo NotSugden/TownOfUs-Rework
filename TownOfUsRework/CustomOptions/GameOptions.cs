@@ -104,12 +104,6 @@ namespace TownOfUsRework.CustomOptions {
           case OptionType.String:
             StringOption stringOption = Object.Instantiate(stringPrefab, togglePrefab.transform.parent);
             gameOption = stringOption;
-            string[] values = (string[]) option.CurrentValue;
-            // Cast is not redundant, VS just thinks it is
-            stringOption.OnValueChanged = (System.Action<OptionBehaviour>) delegate (OptionBehaviour _opt) {
-              var opt = (StringOption) _opt;
-              opt.ValueText.text = values[opt.Value];
-            };
             stringOption.Value = 0;
             stringOption.TitleText.text = option.Name;
             break;
@@ -130,6 +124,10 @@ namespace TownOfUsRework.CustomOptions {
 
           RPCUtil.SyncSetting(key, option);
         };
+
+        if (gameOption is StringOption) {
+          ((StringOption) gameOption).Value = 0;
+        }
 
         gameOption.name = gameOption.gameObject.name = option.Name;
 
