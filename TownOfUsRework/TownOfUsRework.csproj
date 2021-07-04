@@ -1,27 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
-        <Version>1.0.0-dev</Version>
-        <Mappings>DaemonBeast/Mappings:0.6.0</Mappings>
-        <GameVersion>2021.5.25s</GameVersion>
-        <DefineConstants>$(DefineConstants);STEAM</DefineConstants>
-        <Description>Sugden's Custom Mod</Description>
-        <Authors>Sugden</Authors>
-		<AmongUs>C:\Users\Administrator\Desktop\Games\Town Of Us Rewrite</AmongUs>
-    </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TownOfUsRework</RootNamespace>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.0.0-dev</Version>
+    <DebugType>embedded</DebugType>
+    <AmongUs>../AmongUs</AmongUs>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <Deobfuscate Include="$(AmongUs)\BepInEx\plugins\Reactor-$(GameVersion).dll" />
-    </ItemGroup>
+  <PropertyGroup>
+    <GameProvider>Github</GameProvider>
+    <GameVersion>2021.6.15s</GameVersion>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Reactor.OxygenFilter.MSBuild" Version="0.3.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
+  <Target Name="Copy" AfterTargets="Build">
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" />
+  </Target>
 
-    <Target Name="Copy" AfterTargets="Reobfuscate">
-        <Copy SourceFiles="$(OutputPath)reobfuscated/$(AssemblyName)-$(GameVersion).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" Condition="'$(Configuration)' == 'Debug'" />
-    </Target>
+  <ItemGroup>
+    <PackageReference Include="Reactor.MSBuild" Version="0.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Reactor" Version="1.0.0-rc.1"/>
+  </ItemGroup>
 </Project>

@@ -11,9 +11,7 @@ namespace TownOfUsRework {
       );
     public static string ColorText(string hex, string text) => $"<color=#{hex}>{text}</color>";
 
-    public static int RandomInt(int min, int max) {
-      return Random.RandomRangeInt(min, max + 1);
-    }
+    public static int RandomInt(int min, int max) => Random.RandomRangeInt(min, max + 1);
 
     public static PlayerControl GetPlayer(byte playerId) {
       foreach (PlayerControl player in PlayerControl.AllPlayerControls) {
@@ -98,7 +96,7 @@ namespace TownOfUsRework {
         SoundManager.Instance.PlaySound(killer.KillSfx, false, .8f);
       } else if (target.AmOwner) {
         HudManager hudManager = HudManager.Instance;
-        hudManager.KillOverlay.ShowOne(killerData, targetData);
+        hudManager.KillOverlay.ShowKillAnimation(killerData, targetData);
         hudManager.ShadowQuad.gameObject.SetActive(false);
         target.nameText.GetComponent<MeshRenderer>().material.SetInt("_Mask", 0);
         target.RpcSetScanner(false);
